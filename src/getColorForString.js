@@ -1,5 +1,6 @@
 import rgbToHsv from "./rgbToHsv"
 import hsvToRgb from "./hsvToRgb"
+import getContrastRatio from "./getContrastRatio"
 
 // cache the calculated colors
 let colorForString = {
@@ -38,6 +39,54 @@ function getColorForString(str = "", options = {}) {
   const rgb = hsvToRgb(hue, sat, Math.min(val, options.contrast || 35))
   colorForString[cacheKey] = rgb
   return rgb
+}
+
+const alphabets = [
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+]
+
+export function getReadableColorForString(
+  str,
+  backgroundColor,
+  mininumContrastRatio = 1.5,
+  maxAttemp = 5
+) {
+  let attemp = 0
+  let color = null
+  let tmpStr = str
+  while (attemp < maxAttemp) {
+    color = getColorForString(tmpStr, { contrast: 200 })
+    if (getContrastRatio(color, backgroundColor) >= mininumContrastRatio) {
+      break
+    }
+    tmpStr = `${tmpStr}${alphabets[attemp]}`
+    attemp += 1
+  }
+  return color
 }
 
 export default getColorForString
