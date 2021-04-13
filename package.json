@@ -1,12 +1,12 @@
 {
-  "name": "generate-colors",
+  "name": "@meetingmaker/generate-colors",
   "version": "1.3.4",
   "description": "Get colors for a string with accessibility compliant",
   "keywords": [
     "generate colors"
   ],
   "bugs": {
-    "url": "https://github.com/sudkumar/generate-colors/issues"
+    "url": "https://github.com/nclong87/generate-colors/issues"
   },
   "license": "MIT",
   "author": "Sudhir Mitharwal <luckysud4@gmail.com>",
@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sudkumar/generate-colors.git"
+    "url": "git+https://github.com/nclong87/generate-colors.git"
   },
   "scripts": {
     "lint": "eslint cli && eslint src",
@@ -60,7 +60,7 @@
     "serve": "^11.3.2",
     "svelte": "^3.29.7"
   },
-  "homepage": "https://github.com/sudkumar/generate-colors#readme",
+  "homepage": "https://github.com/nclong87/generate-colors.git#readme",
   "directories": {
     "lib": "lib",
     "test": "test"
